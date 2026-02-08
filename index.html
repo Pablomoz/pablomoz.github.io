@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Moz | Desarrollador Frontend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Pablo<span>Moz</span></a>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-greeting">Hola, soy</p>
+                <h1 class="hero-title">Pablo Moz</h1>
+                <h2 class="hero-subtitle">Desarrollador Frontend</h2>
+                <p class="hero-description">
+                    Especializado en crear experiencias web modernas y funcionales
+                    con Angular, TypeScript y las mejores prácticas de desarrollo.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-secondary">Contáctame</a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/pablomoz" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/pablomoz" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:pablomoz@hotmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="code-window">
+                    <div class="window-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <pre class="code-content"><code><span class="keyword">const</span> <span class="variable">developer</span> = {
+  <span class="property">nombre</span>: <span class="string">"Pablo Moz"</span>,
+  <span class="property">rol</span>: <span class="string">"Frontend Developer"</span>,
+  <span class="property">skills</span>: [
+    <span class="string">"Angular"</span>,
+    <span class="string">"TypeScript"</span>,
+    <span class="string">"HTML/CSS"</span>,
+    <span class="string">"C#/.NET"</span>
+  ],
+  <span class="property">pasion</span>: <span class="string">"Crear soluciones"</span>
+};</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Soy un desarrollador frontend apasionado por crear aplicaciones web
+                        modernas y eficientes. Mi enfoque está en construir interfaces de usuario
+                        intuitivas y experiencias digitales que marquen la diferencia.
+                    </p>
+                    <p>
+                        Tengo experiencia desarrollando aplicaciones completas con Angular y
+                        backends en .NET/C#. Me encanta aprender nuevas tecnologías y
+                        mantenerme actualizado con las mejores prácticas del desarrollo web.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Tecnologías</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Dedicación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="skills">
+        <div class="container">
+            <h2 class="section-title">Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-angular"></i>
+                    <h3>Angular</h3>
+                    <p>Desarrollo de SPAs con Angular 18-21, componentes, servicios y routing</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js-square"></i>
+                    <h3>TypeScript</h3>
+                    <p>Código tipado, interfaces, genéricos y patrones de diseño</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5 & CSS3</h3>
+                    <p>Maquetación responsive, Flexbox, Grid y animaciones</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-bootstrap"></i>
+                    <h3>Bootstrap</h3>
+                    <p>Diseño responsive y componentes UI modernos</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>C# / .NET</h3>
+                    <p>Desarrollo de APIs REST y servicios backend</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git & GitHub</h3>
+                    <p>Control de versiones y trabajo colaborativo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyectos</h2>
+            <div class="projects-grid">
+                <!-- Proyecto 1: Angular Spotify -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder spotify">
+                            <i class="fab fa-spotify"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/pablomoz/angular" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Angular Spotify Clone</h3>
+                        <p>Clon de la interfaz de Spotify desarrollado con Angular 19 y Angular Material. Incluye reproductor de música, playlists y navegación dinámica.</p>
+                        <div class="project-tech">
+                            <span>Angular 19</span>
+                            <span>Material UI</span>
+                            <span>Bootstrap</span>
+                            <span>RxJS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Cámaras Chile -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder camaras">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/pablomoz/Camaras" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Sistema de Cámaras Chile</h3>
+                        <p>Aplicación para gestión y visualización de cámaras de seguridad con integración de mapas interactivos usando Leaflet.</p>
+                        <div class="project-tech">
+                            <span>Angular 21</span>
+                            <span>Leaflet</span>
+                            <span>TypeScript</span>
+                            <span>.NET API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Control de Asistencia -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder asistencia">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/pablomoz/control-asistencia" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Control de Asistencia</h3>
+                        <p>Sistema completo para gestión de asistencia de empleados con registro de entradas/salidas, reportes y dashboard administrativo.</p>
+                        <div class="project-tech">
+                            <span>Angular 18</span>
+                            <span>TypeScript</span>
+                            <span>RxJS</span>
+                            <span>.NET API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <p class="contact-text">
+                    ¿Tienes un proyecto en mente o buscas un desarrollador frontend?
+                    ¡Me encantaría escucharte!
+                </p>
+                <div class="contact-methods">
+                    <a href="mailto:pablomoz@hotmail.com" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <span>pablomoz@hotmail.com</span>
+                    </a>
+                    <a href="https://github.com/pablomoz" target="_blank" class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/pablomoz</span>
+                    </a>
+                    <a href="https://linkedin.com/in/pablomoz" target="_blank" class="contact-card">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+                <a href="mailto:pablomoz@hotmail.com" class="btn btn-primary btn-large">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Mensaje
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Pablo Moz. Todos los derechos reservados.</p>
+            <p>Desarrollado con <i class="fas fa-heart"></i> y mucho código</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
