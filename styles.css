@@ -486,6 +486,14 @@ section {
     background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
 }
 
+.project-placeholder.reservas {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.project-placeholder.futbol {
+    background: linear-gradient(135deg, #10b981 0%, #065f46 100%);
+}
+
 .project-overlay {
     position: absolute;
     top: 0;
@@ -502,6 +510,10 @@ section {
 
 .project-card:hover .project-overlay {
     opacity: 1;
+}
+
+.project-overlay {
+    gap: 1rem;
 }
 
 .project-link {
