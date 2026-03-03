@@ -494,6 +494,10 @@ section {
     background: linear-gradient(135deg, #10b981 0%, #065f46 100%);
 }
 
+.project-placeholder.earthmap {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
 .project-overlay {
     position: absolute;
     top: 0;
