@@ -1,0 +1,22 @@
+{
+  "name": "Guerra Gatica Solutions - Traductor Offline/Online",
+  "short_name": "Guerra Gatica",
+  "description": "Traductor inteligente Inglés-Español que funciona con o sin conexión a internet.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0d111c",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guerra Gatica Solutions - Traductor Offline/Online</title>
+  <meta name="description" content="Traductor inteligente Inglés-Español que funciona con o sin conexión a internet.">
+  <meta name="theme-color" content="#8b5cf6">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Boxicons CDN for premium icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body class="dark-mode">
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <div class="logo-icon">G</div>
+      <h1>Guerra Gatica Solutions</h1>
+    </div>
+    
+    <div class="app-controls">
+      <!-- Dictionary Search Modal trigger -->
+      <button class="btn-round" id="open-explorer-btn" title="Buscar en el Diccionario">
+        <i class="bx bx-book-open"></i>
+      </button>
+
+      <!-- Theme Switch -->
+      <button class="btn-round" id="theme-toggle" title="Cambiar Tema">
+        <i class="bx bx-sun" id="theme-icon"></i>
+      </button>
+
+      <!-- Connection Status indicator -->
+      <div class="status-badge online" id="connection-status">
+        <div class="status-dot"></div>
+        <span id="connection-status-text">Online</span>
+      </div>
+
+      <!-- Simulated Offline Mode Switch -->
+      <div class="simulation-mode">
+        <span>Simular Offline</span>
+        <label class="switch">
+          <input type="checkbox" id="offline-simulator">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout -->
+  <main>
+    <!-- Left column: Translator and detail lookups -->
+    <div class="translator-container">
+      
+      <!-- Selector Row -->
+      <div class="lang-selector-bar">
+        <select class="lang-select" id="source-lang-select">
+          <option value="en" selected>Inglés (English)</option>
+          <option value="es">Español (Spanish)</option>
+        </select>
+        
+        <button class="swap-btn" id="swap-lang-btn" title="Intercambiar idiomas">
+          <i class="bx bx-transfer-alt"></i>
+        </button>
+        
+        <select class="lang-select" id="target-lang-select">
+          <option value="es" selected>Español (Spanish)</option>
+          <option value="en">Inglés (English)</option>
+        </select>
+      </div>
+
+      <!-- Panels Row (Source / Translation) -->
+      <div class="panels-grid">
+        <!-- Source Input Panel -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title" id="source-lang-title">
+              <i class="bx bx-text"></i> Inglés
+            </span>
+          </div>
+          
+          <div class="textarea-wrapper">
+            <textarea id="source-text" placeholder="Escribe algo aquí para traducir..." maxlength="5000"></textarea>
+          </div>
+          
+          <div class="panel-footer">
+            <div class="action-buttons">
+              <!-- Speech Recognition (Voice Input) -->
+              <button class="icon-btn" id="voice-input-btn" title="Traducir por voz">
+                <i class="bx bx-microphone"></i>
+              </button>
+              <!-- Text-to-speech for input -->
+              <button class="icon-btn" id="speech-source-btn" title="Escuchar texto original">
+                <i class="bx bx-volume-full"></i>
+              </button>
+              <!-- Clear text -->
+              <button class="icon-btn" id="clear-text-btn" title="Limpiar texto">
+                <i class="bx bx-trash"></i>
+              </button>
+            </div>
+            <span class="char-counter" id="char-counter">0 / 5000</span>
+          </div>
+        </div>
+
+        <!-- Target Output Panel -->
+        <div class="panel panel-target">
+          <div class="panel-header">
+            <span class="panel-title" id="target-lang-title">
+              <i class="bx bx-globe"></i> Español
+            </span>
+          </div>
+          
+          <div class="translated-output empty" id="translated-text">
+            La traducción aparecerá aquí...
+          </div>
+          
+          <div class="panel-footer">
+            <div class="action-buttons">
+              <!-- Copy translated text -->
+              <button class="icon-btn" id="copy-text-btn" title="Copiar traducción">
+                <i class="bx bx-copy"></i>
+              </button>
+              <!-- Text-to-speech for output -->
+              <button class="icon-btn" id="speech-target-btn" title="Escuchar traducción">
+                <i class="bx bx-volume-full"></i>
+              </button>
+              <!-- Add translation to favorites -->
+              <button class="icon-btn" id="favorite-btn" title="Añadir a favoritos">
+                <i class="bx bx-star"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Offline Detail Breakdown Panel -->
+      <div class="offline-detail-panel" id="offline-detail-panel">
+        <div class="offline-detail-header">
+          <i class="bx bx-info-circle text-primary"></i>
+          <span>Desglose de Traducción Offline (Diccionario)</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">
+          Haz clic en cada palabra para ver su definición, categoría y alternativas:
+        </p>
+        <div class="word-pills-container" id="word-pills-container">
+          <!-- Dynamically populated word pills -->
+        </div>
+        <div class="word-card-detail" id="word-card-detail">
+          <h4 id="detail-word-title"><i class="bx bx-book"></i> Palabra</h4>
+          <p id="detail-word-definition" style="margin-bottom: 0.5rem; font-size: 0.95rem;"></p>
+          <span class="pill-pos" id="detail-word-pos">Sustantivo</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right column: Sidebar (Word of the Day, History, Favorites) -->
+    <div class="sidebar">
+      <!-- Word of the Day -->
+      <div class="word-day-card">
+        <div class="word-day-header">
+          <i class="bx bx-star"></i> Palabra del Día
+        </div>
+        <div class="word-day-body">
+          <h3 id="daily-word-en">Loading...</h3>
+          <p class="word-day-translation" id="daily-word-es">...</p>
+          <p id="daily-word-pos" style="font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-top: 0.25rem;">...</p>
+          <p class="word-day-example" id="daily-word-example">...</p>
+        </div>
+      </div>
+
+      <!-- History and Favorites Panel -->
+      <div class="sidebar-panel">
+        <div class="sidebar-header">
+          <span><i class="bx bx-history"></i> Historial y Favoritos</span>
+          <button class="icon-btn" id="clear-history-btn" title="Limpiar Historial" style="width: 28px; height: 28px;">
+            <i class="bx bx-trash-alt"></i>
+          </button>
+        </div>
+        
+        <input type="text" class="explorer-input" id="history-search-input" placeholder="Buscar en el historial..." style="margin-bottom: 1rem; padding: 0.5rem 0.75rem; font-size: 0.85rem; border-radius: var(--border-radius-sm);">
+
+        <div class="history-list" id="history-list">
+          <!-- Dynamically populated history entries -->
+          <div class="no-items">No hay traducciones aún</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Dictionary Explorer Modal (Hidden by default) -->
+  <div class="explorer-modal" id="explorer-modal">
+    <div class="explorer-content">
+      <div class="explorer-header">
+        <h2 style="font-family: var(--font-heading); font-size: 1.3rem;"><i class="bx bx-book-open"></i> Explorador del Diccionario</h2>
+        <button class="icon-btn" id="close-explorer-btn" title="Cerrar">
+          <i class="bx bx-x" style="font-size: 1.5rem;"></i>
+        </button>
+      </div>
+      
+      <div class="explorer-search-wrapper">
+        <input type="text" class="explorer-input" id="explorer-search-input" placeholder="Escribe para buscar palabras o frases (Ej: hello, casa, cat)...">
+      </div>
+      
+      <div class="explorer-results" id="explorer-results">
+        <div class="no-items">Escribe algo en el buscador para ver las coincidencias offline</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification banner -->
+  <div class="toast" id="toast-notification">
+    <i class="bx bx-check-circle"></i>
+    <span id="toast-message">Copiado al portapapeles</span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Guerra Gatica Solutions. Traductor PWA Offline Inteligente.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="dictionary.js"></script>
+  <script src="offlineEngine.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registrado con éxito: ', registration.scope);
+          })
+          .catch(error => {
+            console.log('Fallo al registrar el ServiceWorker: ', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
